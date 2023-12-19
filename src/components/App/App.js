@@ -5,8 +5,6 @@ import './App.scss';
 
 //ToDo:
 // break up buttons container. the pointer-events are messing with the interaction of the cards below. Need to be positioned individually
-// @supports on fluid type mixin
-// does "selected" need to be a state variable? or just a js toggle? It will remember which card is flipped over. Might be more performant to use JS and basic css instead of state var. Experiment.
 
 // fix mask on large screens. need to adjust vw... or use container query
 
@@ -45,15 +43,17 @@ import './App.scss';
 // TOUCH UP / CLEAN UP ************
 // make breakpoint mixins use sass variables
 // remove unnecessary font size variables
-// remove comments
+// remove comments and console logs
 // consolidate text sizes and add for 16rem
 // performance enhancements on mobile... dyslexic version is choppy, try: text-rendering: optimizeSpeed; or will-change: transform... or don't transform icons at all.
 // Only do icon animations on desktop. Mobile is too much it causes chop.
 // reduce the "bounce" of embla. too much?
+// does "selected" need to be a state variable? or just a js toggle? It will remember which card is flipped over. Might be more performant to use JS and basic css instead of state var. Experiment.
 // try out range syntax in media queries: https://www.bram.us/2021/10/26/media-queries-level-4-media-query-range-contexts/
 // change up code comment styling. Make unique.
 
 // NICE TO HAVE / ENHANCEMENTS
+// have an input mode, where checks the answer and if correct, apply the selected class, if not, shake no
 // try to get grid to load only when applicable and not all at the beginning to avoid the FOUC. Lazy load???
 // ADD a shuffle/reset button to refilter
 // add a start stop timer?

@@ -5,12 +5,48 @@
 	height: 100vh;
 }
 
+.wrapper {
+	@include utils.max-width;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-lg);
+
+	@media screen and (min-width: 1023px) {
+		grid-template-columns: 1fr 2fr;
+	}
+}
+
+.leftSide {
+	--flow-space: var(--space-md);
+
+	display: grid;
+	place-content: center;
+	text-align: left; // left only for dyslexia?
+
+	* + * {
+		margin-top: var(--flow-space);
+	}
+
+	h1 {
+		font-size: var(--text-3xl);
+
+		span {
+			display: inline-block;
+			transform: skewY(-3deg);
+		}
+	}
+}
+.rightSide {
+	display: grid;
+	align-content: center;
+	margin: var(--space-3xl) 0 calc(var(--space-3xl) * 2);
+}
+
 // ===============================
 // Accessibility Controls
 // ===============================
 
 .controls {
-	@include utils.max-width;
 	display: grid;
 	grid-template-columns: auto auto;
 	align-items: center;
@@ -22,12 +58,6 @@
 		justify-content: space-between;
 		margin-top: var(--space-xl);
 	}
-}
-
-.wrapper {
-	display: grid;
-	align-content: center;
-	margin: var(--space-3xl) 0 calc(var(--space-3xl) * 2);
 }
 
 .iconSelect {

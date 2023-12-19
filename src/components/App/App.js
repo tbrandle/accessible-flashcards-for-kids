@@ -4,10 +4,12 @@ import CardCarousel from '../CardCarousel/CardCarousel';
 import './App.scss';
 
 //ToDo:
-// update layout to be more centered
 // break up buttons container. the pointer-events are messing with the interaction of the cards below. Need to be positioned individually
 // @supports on fluid type mixin
-// does "selected" need to be a state variable? or just a js toggle? Might be more performant to use JS and basic css.
+// does "selected" need to be a state variable? or just a js toggle? It will remember which card is flipped over. Might be more performant to use JS and basic css instead of state var. Experiment.
+
+// fix mask on large screens. need to adjust vw... or use container query
+
 // tune up progress success messaging. glitches back and fourth... maybe round the number up with ceiling to make it exact? too fluid at the moment, the text bounces back and forth between text. Also animate this text in and have it disappear again.
 // on full completion, maybe rainbow animate the color bar?
 // make slider more interesting. add ::after to change shape, or add encouraging messaging
@@ -137,22 +139,32 @@ const App = () => {
 	return (
 		<div className='app'>
 			<div className='wrapper'>
-				<div className='controls'>
-					<Switch label='Optimize for Dyslexia' onChange={() => handleAccessibilityTheme()} />
-					<div className='iconSelect'>
-						<label htmlFor='icon-select'>Theme</label>
-						<select id='icon-select' name='icon' value={dataTheme} onChange={(e) => setDataTheme(e.target.value)}>
-							<option value='🚀'>🚀</option>
-							<option value='🤖'>🤖</option>
-							{/* <option value="🦊">🦊</option> */}
-							{/* <option value="🌴">🌴</option> */}
-							{/* <option value="💜">💜</option> */}
-							{/* <option value="🍔">🍔</option> */}
-							{/* <option value="💩">💩</option> */}
-						</select>
-					</div>
+				<div className='leftSide'>
+					<header>
+						<h1>
+							Accessible Flashcards <span>for kids!</span>
+						</h1>
+						<h2>A simple way to learn &amp; practice multiplication problems.</h2>
+					</header>
 				</div>
-				<CardCarousel icon={dataTheme} />
+				<div className='rightSide'>
+					<div className='controls'>
+						<Switch label='Optimize for Dyslexia' onChange={() => handleAccessibilityTheme()} />
+						<div className='iconSelect'>
+							<label htmlFor='icon-select'>Theme</label>
+							<select id='icon-select' name='icon' value={dataTheme} onChange={(e) => setDataTheme(e.target.value)}>
+								<option value='🚀'>🚀</option>
+								<option value='🤖'>🤖</option>
+								{/* <option value="🦊">🦊</option> */}
+								{/* <option value="🌴">🌴</option> */}
+								{/* <option value="💜">💜</option> */}
+								{/* <option value="🍔">🍔</option> */}
+								{/* <option value="💩">💩</option> */}
+							</select>
+						</div>
+					</div>
+					<CardCarousel icon={dataTheme} />
+				</div>
 			</div>
 		</div>
 	);

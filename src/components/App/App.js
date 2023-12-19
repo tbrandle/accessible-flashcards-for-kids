@@ -1,11 +1,9 @@
-import { useState, useEffect } from "react";
-import Switch from "../Switch/Switch";
-import CardCarousel from "../CardCarousel/CardCarousel";
-import "./App.scss";
+import { useState, useEffect } from 'react';
+import Switch from '../Switch/Switch';
+import CardCarousel from '../CardCarousel/CardCarousel';
+import './App.scss';
 
 //ToDo:
-// **** get this on github
-// change up code comment styling. Make unique.
 // tune up progress success messaging. glitches back and fourth... maybe round the number up with ceiling to make it exact? too fluid at the moment, the text bounces back and forth between text. Also animate this text in and have it disappear again.
 // on full completion, maybe rainbow animate the color bar?
 // @supports on fluid type mixin
@@ -41,12 +39,13 @@ import "./App.scss";
 
 // TOUCH UP / CLEAN UP ************
 // make breakpoint mixins use sass variables
-// remove unneccesary font size variables
+// remove unnecessary font size variables
 // remove comments
 // consolidate text sizes and add for 16rem
 // performance enhancemnts on mobile... dyslex version is choppy, try: text-rendering: optimizeSpeed; or will-change: transform... or don't transform icons at all.
 // reduce the "bounce" of embla. too much?
 // try out range syntax in media queries: https://www.bram.us/2021/10/26/media-queries-level-4-media-query-range-contexts/
+// change up code comment styling. Make unique.
 
 // NICE TO HAVE / ENHANCEMENTS
 // ADD a shuffle/reset button to refilter
@@ -75,7 +74,7 @@ import "./App.scss";
  * Accessibility enhancements, specifically for keyboard users, dyslexia and prefers-reduced-motion
  * React state management, derived state, lifting state, child to parent communication.
  * Translating JS data into CSS variables for style manipulation.
- * User research - dyslexia design theory and mathmatics
+ * User research - dyslexia design theory and mathematics
  * User testing - dyslexic user, prefer colors, icons, layout
  * Fluid typography using container queries techniques
  */
@@ -107,63 +106,50 @@ import "./App.scss";
  */
 
 const App = () => {
-  const [dataAccessibilityTheme, setDataAccessibilityTheme] = useState("");
-  const [dataTheme, setDataTheme] = useState("🤖");
+	const [dataAccessibilityTheme, setDataAccessibilityTheme] = useState('');
+	const [dataTheme, setDataTheme] = useState('🤖');
 
-  useEffect(() => {
-    document.body.setAttribute(
-      "data-accessibility-theme",
-      dataAccessibilityTheme
-    );
+	useEffect(() => {
+		document.body.setAttribute('data-accessibility-theme', dataAccessibilityTheme);
 
-    return () => {
-      document.body.removeAttribute("data-accessibility-theme");
-    };
-  }, [dataAccessibilityTheme]);
+		return () => {
+			document.body.removeAttribute('data-accessibility-theme');
+		};
+	}, [dataAccessibilityTheme]);
 
-  useEffect(() => {
-    document.body.setAttribute("data-theme", dataTheme);
+	useEffect(() => {
+		document.body.setAttribute('data-theme', dataTheme);
 
-    return () => {
-      document.body.removeAttribute("data-theme");
-    };
-  }, [dataTheme]);
+		return () => {
+			document.body.removeAttribute('data-theme');
+		};
+	}, [dataTheme]);
 
-  const handleAccessibilityTheme = () => {
-    setDataAccessibilityTheme(
-      dataAccessibilityTheme !== "dyslexic" ? "dyslexic" : ""
-    );
-  };
+	const handleAccessibilityTheme = () => {
+		setDataAccessibilityTheme(dataAccessibilityTheme !== 'dyslexic' ? 'dyslexic' : '');
+	};
 
-  return (
-    <div className="app">
-      <div className="controls">
-        <Switch
-          label="Optimize for Dyslexia"
-          onChange={() => handleAccessibilityTheme()}
-        />
-        <div className="iconSelect">
-          <label htmlFor="icon">Theme</label>
-          <select
-            id="icon-select"
-            name="icon"
-            value={dataTheme}
-            onChange={(e) => setDataTheme(e.target.value)}
-          >
-            <option value="🚀">🚀</option>
-            <option value="🤖">🤖</option>
-            {/* <option value="🦊">🦊</option> */}
-            {/* <option value="🌴">🌴</option> */}
-            {/* <option value="💜">💜</option> */}
-            {/* <option value="🍔">🍔</option> */}
-            {/* <option value="💩">💩</option> */}
-          </select>
-        </div>
-      </div>
-      <div className="wrapper">
-        <CardCarousel icon={dataTheme} />
-      </div>
-    </div>
-  );
+	return (
+		<div className='app'>
+			<div className='controls'>
+				<Switch label='Optimize for Dyslexia' onChange={() => handleAccessibilityTheme()} />
+				<div className='iconSelect'>
+					<label htmlFor='icon'>Theme</label>
+					<select id='icon-select' name='icon' value={dataTheme} onChange={(e) => setDataTheme(e.target.value)}>
+						<option value='🚀'>🚀</option>
+						<option value='🤖'>🤖</option>
+						{/* <option value="🦊">🦊</option> */}
+						{/* <option value="🌴">🌴</option> */}
+						{/* <option value="💜">💜</option> */}
+						{/* <option value="🍔">🍔</option> */}
+						{/* <option value="💩">💩</option> */}
+					</select>
+				</div>
+			</div>
+			<div className='wrapper'>
+				<CardCarousel icon={dataTheme} />
+			</div>
+		</div>
+	);
 };
 export default App;

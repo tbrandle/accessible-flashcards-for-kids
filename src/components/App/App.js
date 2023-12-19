@@ -4,25 +4,28 @@ import CardCarousel from '../CardCarousel/CardCarousel';
 import './App.scss';
 
 //ToDo:
+// update layout to be more centered
+// break up buttons container. the pointer-events are messing with the interaction of the cards below. Need to be positioned individually
+// @supports on fluid type mixin
+// does "selected" need to be a state variable? or just a js toggle? Might be more performant to use JS and basic css.
 // tune up progress success messaging. glitches back and fourth... maybe round the number up with ceiling to make it exact? too fluid at the moment, the text bounces back and forth between text. Also animate this text in and have it disappear again.
 // on full completion, maybe rainbow animate the color bar?
-// @supports on fluid type mixin
-// break up buttons container. the pointer-events are messing with the interaction of the cards below. Need to be positioned individually
 // make slider more interesting. add ::after to change shape, or add encouraging messaging
 // slide-in-view isn't quite accurate. says in view when they aren't...
 // update select arrow with chevron?
-// does "selected" need to be a state variable? or just a js toggle? Might be more performant to use JS and basic css.
 // make left and right cards visible on mobile so swiping is automatically suggested, no rely on buttons. Need to tinker with flex-basis and justify-content center on slides ul.
 // on large screens, have next and prev on the sides with text
 // update cubic bezier easing... add some smoothing, maybe some bounce
 // card flip animation
-// text shadow on the icon for dimension?
 // update fonts
+// Add full screen background imagery per theme.
+// Make the progress bar fill up the entire viewport edge? completes the full square??? https://stackoverflow.com/questions/31996110/progress-bar-along-the-borders-of-a-rectangle#32003052
 
 // CARD BACKS:
 // utilize stock imagery?
-// add a texture to backgrounds, like space... stars or horizonal gradients
-// desaturate and stylize the icon on the back of the card? Maybe 1 large barely visible in the card center or along the edges/corners
+// text shadow on the icon for dimension?
+// add a texture to backgrounds, like space... stars or horizontal gradients
+// de-saturate and stylize the icon on the back of the card? Maybe 1 large barely visible in the card center or along the edges/corners
 // is it possible to get the html emoticons in svg format? Then could make the robot's light flash or something when selected is active...
 
 // BUGS
@@ -42,12 +45,14 @@ import './App.scss';
 // remove unnecessary font size variables
 // remove comments
 // consolidate text sizes and add for 16rem
-// performance enhancemnts on mobile... dyslex version is choppy, try: text-rendering: optimizeSpeed; or will-change: transform... or don't transform icons at all.
+// performance enhancements on mobile... dyslexic version is choppy, try: text-rendering: optimizeSpeed; or will-change: transform... or don't transform icons at all.
+// Only do icon animations on desktop. Mobile is too much it causes chop.
 // reduce the "bounce" of embla. too much?
 // try out range syntax in media queries: https://www.bram.us/2021/10/26/media-queries-level-4-media-query-range-contexts/
 // change up code comment styling. Make unique.
 
 // NICE TO HAVE / ENHANCEMENTS
+// try to get grid to load only when applicable and not all at the beginning to avoid the FOUC. Lazy load???
 // ADD a shuffle/reset button to refilter
 // add a start stop timer?
 // add alerts like "half way there! Keep going!", "only 10 more!"
@@ -131,22 +136,22 @@ const App = () => {
 
 	return (
 		<div className='app'>
-			<div className='controls'>
-				<Switch label='Optimize for Dyslexia' onChange={() => handleAccessibilityTheme()} />
-				<div className='iconSelect'>
-					<label htmlFor='icon'>Theme</label>
-					<select id='icon-select' name='icon' value={dataTheme} onChange={(e) => setDataTheme(e.target.value)}>
-						<option value='🚀'>🚀</option>
-						<option value='🤖'>🤖</option>
-						{/* <option value="🦊">🦊</option> */}
-						{/* <option value="🌴">🌴</option> */}
-						{/* <option value="💜">💜</option> */}
-						{/* <option value="🍔">🍔</option> */}
-						{/* <option value="💩">💩</option> */}
-					</select>
-				</div>
-			</div>
 			<div className='wrapper'>
+				<div className='controls'>
+					<Switch label='Optimize for Dyslexia' onChange={() => handleAccessibilityTheme()} />
+					<div className='iconSelect'>
+						<label htmlFor='icon-select'>Theme</label>
+						<select id='icon-select' name='icon' value={dataTheme} onChange={(e) => setDataTheme(e.target.value)}>
+							<option value='🚀'>🚀</option>
+							<option value='🤖'>🤖</option>
+							{/* <option value="🦊">🦊</option> */}
+							{/* <option value="🌴">🌴</option> */}
+							{/* <option value="💜">💜</option> */}
+							{/* <option value="🍔">🍔</option> */}
+							{/* <option value="💩">💩</option> */}
+						</select>
+					</div>
+				</div>
 				<CardCarousel icon={dataTheme} />
 			</div>
 		</div>

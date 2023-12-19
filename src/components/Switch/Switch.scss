@@ -1,0 +1,101 @@
+@use "../../styles/utils";
+
+.switch {
+  --switch-background-color-off: var(--color-gray-500);
+  --switch-background-color-on-gradient-left: var(--theme-color-gradient-left);
+  --switch-background-color-on-gradient-right: var(
+    --theme-color-gradient-right
+  );
+  --switch-knob-color: var(--color-white);
+  --switch-label-color-text: var(--theme-color-body-text);
+  --switch-width: 3.5rem;
+  --switch-height: 2rem;
+  --switch-border: 3px;
+  --switch-size: calc(var(--switch-height) - var(--switch-border) * 2);
+  --switch-offset: calc(var(--switch-width) - var(--switch-size));
+
+  display: flex;
+  align-items: center;
+  height: 30px;
+
+  // &:focus-within {
+  //   outline: 5px auto -webkit-focus-ring-color;
+  //   outline-offset: 2px;
+  // }
+
+  @include utils.has-hover {
+    cursor: pointer;
+  }
+
+  .switchLabel {
+    color: var(--switch-label-color-text);
+    padding-right: var(--space-sm);
+  }
+
+  input[role="switch"] {
+    // visually hidden
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+
+    &:focus-visible ~ .state .container {
+      outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: 2px;
+    }
+
+    ~ .state {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+        position: relative;
+        width: var(--switch-width);
+        height: var(--switch-height);
+        cursor: pointer;
+        border-radius: 360px;
+        background-color: var(--switch-background-color-off);
+        transition: background-color var(--duration-xs) ease-out;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: var(--switch-border);
+          left: var(--switch-border);
+          width: var(--switch-size);
+          height: var(--switch-size);
+          background-color: var(--switch-knob-color);
+          border-radius: inherit;
+          box-shadow: 0px 2px 4px hsla(0, 0%, 0%, 35%);
+          transition: transform var(--duration-xs) ease-out;
+        }
+      }
+    }
+
+    &:checked ~ .state {
+      .container {
+        background: linear-gradient(
+          45deg,
+          var(--switch-background-color-on-gradient-left),
+          var(--switch-background-color-on-gradient-right)
+        );
+
+        &::after {
+          transform: translateX(
+            calc(var(--switch-offset) - var(--switch-border) * 2)
+          );
+        }
+      }
+    }
+  }
+}

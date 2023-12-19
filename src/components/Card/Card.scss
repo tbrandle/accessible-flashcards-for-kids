@@ -1,0 +1,219 @@
+@use "../../styles/utils";
+
+// ===============================
+// Card styles
+// ===============================
+
+.card {
+  --card-color-front-text-primary: var(--theme-color-content-text-primary);
+  --card-color-front-text-secondary: var(--theme-color-content-text-secondary);
+  --card-color-front-bg: var(--theme-color-content-bg);
+  --card-color-back-text: var(--theme-color-content-text-alt);
+  --card-color-back-border: var(--theme-color-content-border);
+  --card-color-gradient-left: var(--theme-color-gradient-left-alt);
+  --card-color-gradient-right: var(--theme-color-gradient-right-alt);
+  --card-border-radius: 12px;
+  // --card-outline-thickness: 4px;
+  // --card-outline-offset:;
+
+  display: grid;
+  place-content: center;
+  font-family: var(--font-family);
+  padding: var(--space-md);
+  color: var(--card-color-front-text-primary);
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  container-type: inline-size;
+  border: none;
+  text-decoration: none;
+  background-color: var(--card-color-front-bg);
+  text-align: right;
+  vertical-align: middle;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--card-border-radius);
+  text-wrap: balance;
+  box-shadow: 0px 4px 8px hsl(0, 0%, 0%, 20%);
+  transition: transform var(--duration-sm) ease-out,
+    box-shadow var(--duration-sm) ease-out,
+    background-color var(--duration-sm) ease-out, opacity 500ms ease;
+  opacity: 0;
+  transform: scale(1);
+  transform-origin: bottom;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(
+    0,
+    0,
+    0,
+    0
+  ); // Not typically recommended to do this, but there is enough visual feedback in this instance to justify it's use
+
+  @include utils.has-hover(":hover", ":focus-visible") {
+    cursor: pointer;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transform: scale(1.01);
+
+      box-shadow: 0px 8px 16px hsla(0, 0%, 0%, 20%);
+    }
+  }
+
+  .is-in-view & {
+    opacity: 1;
+  }
+
+  // .is-snapped & {
+  //   @for $i from 1 through 100 {
+  //     .cell:nth-child(#{$i}) {
+  //       opacity: 1;
+
+  //       @media (prefers-reduced-motion: no-preference) {
+  //         transform: translateY(0);
+  //         transition-delay: var(--duration-md) + ($i * 12ms);
+  //       }
+  //     }
+  //   }
+  //   // .integerGrid {
+  //   //   opacity: 1;
+  //   //   // border: 1px solid red;
+
+  //   //   @media (prefers-reduced-motion: no-preference) {
+  //   //     transform: translateY(0);
+  //   //   }
+  //   // }
+  // }
+
+  &.selected {
+    --card-outline-thickness: 4px;
+
+    color: var(--card-color-back-text);
+    outline: var(--card-outline-thickness) double var(--card-color-back-border);
+    outline-offset: calc(
+      (var(--card-border-radius) + var(--card-outline-thickness)) * -1
+    );
+    text-align: center;
+    background: linear-gradient(
+      45deg,
+      var(--card-color-gradient-left),
+      var(--card-color-gradient-right)
+    );
+  }
+
+  [data-accessibility-theme="dyslexic"] & {
+    &:not(.selected) {
+      place-content: initial;
+      grid-template-rows: 1fr auto;
+    }
+  }
+}
+
+.selectedIcon {
+  // figure out placement.
+  // custom theme styling here? Like a background? Rocket... space... sun. Robot... claw... text? beep boop blip...
+  // mix-blend-mode: luminosity;
+  font-size: 20rem;
+  opacity: 0.7;
+
+  [data-theme="🚀"] & {
+    mix-blend-mode: luminosity;
+  }
+}
+
+// ===============================
+// Icon Grid styles
+// ===============================
+
+.gridContainer {
+  aspect-ratio: 1 / 1;
+  align-self: center;
+  display: none;
+
+  [data-accessibility-theme="dyslexic"] & {
+    display: grid;
+  }
+}
+
+.integerGrid {
+  padding: var(--space-sm);
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns, 1), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--grid-rows, 1), minmax(0, 1fr));
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity var(--duration-md) ease-out var(--duration-md);
+
+  .is-snapped & {
+    opacity: 1;
+  }
+}
+
+.cell {
+  --font-size-min: var(--text-md);
+  --font-size-fluid: 7cqi;
+  --font-size-max: var(--text-2xl);
+
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  font-size: var(--text-md);
+  // opacity: 0;
+  // transform: translateY(2px);
+  // transition: transform var(--duration-sm) ease-out,
+  //   opacity var(--duration-sm) ease-out;
+  // transition-delay: 3s;
+
+  @include utils.fluid-type;
+}
+
+// ===============================
+// Integer styles
+// ===============================
+.integerEquation {
+  justify-self: center;
+}
+
+.integer {
+  --font-size-min: var(--text-8xl);
+  --font-size-fluid: 36cqi;
+  --font-size-max: 16rem;
+
+  place-self: center;
+  @include utils.fluid-type;
+
+  [data-accessibility-theme="dyslexic"] & {
+    &.front {
+      --font-size-min: var(--text-6xl);
+      --font-size-fluid: 20cqi;
+      --font-size-max: var(--text-8xl);
+
+      display: inline-block;
+      // @include utils.fluid-type;
+
+      &:first-child {
+        padding-right: var(--space-sm);
+      }
+    }
+  }
+
+  .selected & {
+    font-size: var(--text-8xl);
+  }
+
+  span {
+    // font-size: var(--text-6xl);
+    color: var(--card-color-front-text-secondary);
+    padding-right: var(--space-sm);
+    text-shadow: 0 1px 2px hsl(0, 0%, 0%, 20%);
+    font-size: 1em;
+
+    // [data-accessibility-theme="dyslexic"] & {
+    //   font-size: var(--text-6xl);
+    // }
+  }
+}

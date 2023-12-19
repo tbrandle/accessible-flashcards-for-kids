@@ -1,0 +1,81 @@
+@use "../../styles/utils";
+
+.app {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+
+  > div {
+    display: grid;
+  }
+}
+
+// ===============================
+// Accessibility Controls
+// ===============================
+
+.controls {
+  @include utils.max-width;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-base);
+  margin-top: var(--space-3xl);
+  margin-bottom: var(--space-base);
+
+  @media screen and (max-width: 499px) {
+    justify-content: space-between;
+    margin-top: var(--space-xl);
+  }
+}
+
+.wrapper {
+  align-content: start;
+}
+
+.iconSelect {
+  --select-label-color-text: var(--theme-color-body-text);
+  --select-divider: var(--theme-color-accent-soft);
+
+  display: flex;
+  align-items: center;
+  color: var(--select-label-color-text);
+  padding-left: var(--space-base);
+  position: relative;
+
+  &::after {
+    content: "\25BC";
+    position: absolute;
+    right: var(--space-xs);
+    transform: translateY(1px);
+    pointer-events: none;
+    font-size: 0.5em;
+  }
+
+  @media screen and (min-width: 500px) {
+    border-left: solid 2px var(--select-divider);
+  }
+
+  label {
+    padding-right: var(--space-xs);
+  }
+
+  select {
+    -webkit-appearance: none;
+    appearance: none;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    padding: var(--space-xs) var(--space-base) var(--space-xs) var(--space-xs);
+    font-size: var(--text-lg);
+    text-align: center;
+
+    &:focus {
+      outline-offset: 1px;
+    }
+
+    @include utils.has-hover {
+      cursor: pointer;
+    }
+  }
+}

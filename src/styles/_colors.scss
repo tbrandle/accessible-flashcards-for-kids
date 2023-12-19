@@ -1,0 +1,89 @@
+:root {
+  // ===============================
+  // Tier 1: Color definitions
+  // ===============================
+
+  /**
+   * Neutral Colors:
+   * Used globally for UI elements
+   */
+  --color-white: hsl(0, 0%, 100%);
+  --color-white-70: hsla(0, 0%, 100%, 70%);
+  --color-black: hsl(0, 0%, 20%);
+  --color-black-70: hsla(0, 0%, 20%, 70%);
+  --color-gray-100: hsl(0, 0%, 90%);
+  --color-gray-500: hsl(0, 0%, 75%);
+  --color-gray-800: hsl(0, 0%, 50%);
+
+  /**
+   * Core Theme Colors:
+   * Used for Tier 2 theme mapping
+   */
+  // 🚀
+  --color-rocket-red: #ff0f09;
+  --color-rocket-yellow: #ffe113;
+  --color-rocket-orange: #ff6a02;
+  --color-rocket-blue-800: #2a223e;
+  --color-rocket-blue-900: #201428;
+  --color-rocket-gray: #7e94a2;
+  --color-rocket-gray-dark: #353b3f;
+
+  // 🤖
+  --color-robot-electric-blue: #03fbff;
+  --color-robot-electric-mid: #00bef1;
+  --color-robot-light-blue: #dbf5f6;
+  --color-robot-gray-blue: #b4cbc2;
+  --color-robot-blue-dark: #003743;
+  --color-robot-blue-dark-soft: #0f4e59;
+  --color-robot-blue-gray: #3c6168;
+  --color-robot-yellow: #fed506;
+  --color-robot-purple: #735a8b;
+  --color-robot-red: #ff0000;
+  --color-robot-yellow-dark: #f77f00;
+}
+
+// ===============================
+// Tier 2: Semantic Mapping, Commonly used UI
+// ===============================
+[data-theme="🚀"] {
+  // remove this one
+  --theme-color-gradient-left: var(--color-rocket-orange);
+  --theme-color-gradient-right: var(--color-rocket-red);
+  --theme-color-gradient-left-alt: var(--color-rocket-yellow);
+  --theme-color-gradient-right-alt: var(--color-rocket-orange);
+  --theme-color-accent-soft: var(--color-rocket-blue-800);
+
+  --theme-color-body-text: var(--color-white);
+  --theme-color-body-bg: var(--color-rocket-blue-900);
+
+  --theme-color-content-text-primary: var(--color-rocket-gray-dark);
+  --theme-color-content-text-secondary: var(--color-rocket-gray);
+  --theme-color-content-text-alt: var(--color-white);
+  --theme-color-content-bg: var(--color-white);
+  --theme-color-content-border: var(--color-rocket-gray-dark);
+
+  --theme-color-button: var(--color-white-70);
+  --theme-color-button-hover: var(--color-white);
+}
+
+[data-theme="🤖"] {
+  //simplify unused colors above
+
+  --theme-color-gradient-left: var(--color-robot-electric-mid);
+  --theme-color-gradient-right: var(--color-robot-electric-blue);
+  --theme-color-gradient-left-alt: var(--color-robot-light-blue);
+  --theme-color-gradient-right-alt: var(--color-white);
+  --theme-color-accent-soft: var(--color-robot-blue-dark-soft);
+
+  --theme-color-body-text: var(--color-robot-blue-dark);
+  --theme-color-body-bg: var(--color-robot-yellow);
+
+  --theme-color-content-text-primary: var(--color-robot-blue-dark-soft);
+  --theme-color-content-text-secondary: var(--color-robot-electric-mid);
+  --theme-color-content-text-alt: var(--color-robot-electric-mid);
+  --theme-color-content-bg: var(--color-white);
+  --theme-color-content-border: var(--color-robot-red);
+
+  --theme-color-button: var(--color-robot-blue-dark-soft);
+  --theme-color-button-hover: var(--color-robot-blue-dark);
+}

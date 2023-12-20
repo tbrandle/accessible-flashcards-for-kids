@@ -1,38 +1,39 @@
 :root {
-  --space-base: 1.6rem;
-  --space-2xs: calc(var(--space-base) * 0.125);
-  --space-xs: calc(var(--space-base) * 0.25);
-  --space-sm: calc(var(--space-base) * 0.5);
-  --space-md: calc(var(--space-base) * 1.5);
-  --space-lg: calc(var(--space-base) * 2);
-  --space-xl: calc(var(--space-base) * 3);
-  --space-2xl: calc(var(--space-base) * 4);
-  --space-3xl: calc(var(--space-base) * 5);
+	--space-base: 1.6rem;
+	--space-2xs: calc(var(--space-base) * 0.125);
+	--space-xs: calc(var(--space-base) * 0.25);
+	--space-sm: calc(var(--space-base) * 0.5);
+	--space-md: calc(var(--space-base) * 1.5);
+	--space-lg: calc(var(--space-base) * 2);
+	--space-xl: calc(var(--space-base) * 3);
+	--space-2xl: calc(var(--space-base) * 4);
+	--space-3xl: calc(var(--space-base) * 5);
 
-  --font-family-primary: sans-serif;
-  --font-family-secondary: "Lexend", sans-serif;
-  --font-family: var(--font-family-primary);
+	--font-family-primary: 'Nunito', sans-serif;
+	--font-family-secondary: 'Lexend', sans-serif;
+	--font-family-display: 'Bangers', serif;
+	--font-family: var(--font-family-primary);
 
-  --text-base: 1.6rem;
-  --text-xs: 1.1rem;
-  --text-sm: 1.3rem;
-  --text-md: 2rem;
-  --text-lg: 2.4rem;
-  --text-xl: 2.8rem;
-  --text-2xl: 3.6rem;
-  --text-3xl: 4.4rem;
-  --text-4xl: 5.2rem;
-  --text-5xl: 6rem;
-  --text-6xl: 7.2rem;
-  --text-7xl: 8.8rem;
-  --text-8xl: 12rem;
+	--text-base: 1.6rem;
+	--text-xs: 1.1rem;
+	--text-sm: 1.3rem;
+	--text-md: 2rem;
+	--text-lg: 2.4rem;
+	--text-xl: 2.8rem;
+	--text-2xl: 3.6rem;
+	--text-3xl: 4.4rem;
+	--text-4xl: 5.2rem;
+	--text-5xl: 6rem;
+	--text-6xl: 7.2rem;
+	--text-7xl: 8.8rem;
+	--text-8xl: 12rem;
 
-  --duration-2xs: 20ms;
-  --duration-xs: 100ms;
-  --duration-sm: 150ms;
-  --duration-md: 200ms;
+	--duration-2xs: 20ms;
+	--duration-xs: 100ms;
+	--duration-sm: 150ms;
+	--duration-md: 200ms;
 }
 
-[data-accessibility-theme="dyslexic"] {
-  --font-family: var(--font-family-secondary);
+[data-accessibility-theme='dyslexic'] {
+	--font-family: var(--font-family-secondary);
 }

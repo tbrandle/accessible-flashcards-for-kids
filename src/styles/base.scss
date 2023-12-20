@@ -1,29 +1,30 @@
-@import url("https://fonts.googleapis.com/css2?family=Lexend&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Lexend&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Lexend&family=Nunito:wght@600&display=swap');
 
-@import "./colors";
-@import "./variables";
+@import './colors';
+@import './variables';
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  line-height: 1;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	line-height: 1;
 }
 
 html {
-  /* font-size 1em = 10px on default browser settings */
-  font-size: 62.5%;
+	/* font-size 1em = 10px on default browser settings */
+	font-size: 62.5%;
 }
 
 body {
-  width: 100%;
-  height: 100%;
-  background-color: var(--theme-color-body-bg, var(--color-gray-light));
-  padding: 0;
-  margin: 0;
-  font-family: var(--font-family);
-  font-size: var(--text-base);
-  line-height: 1.5;
-  -webkit-text-size-adjust: 100%;
-  transition: background-color var(--duration-sm) ease-out;
+	width: 100%;
+	height: 100%;
+	background-color: var(--theme-color-body-bg, var(--color-gray-light));
+	padding: 0;
+	margin: 0;
+	font-family: var(--font-family);
+	font-size: var(--text-base);
+	line-height: 1.5;
+	-webkit-text-size-adjust: 100%;
+	transition: background-color var(--duration-sm) ease-out;
 }

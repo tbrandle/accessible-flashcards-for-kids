@@ -1,39 +1,39 @@
-@mixin has-hover($selector: ":hover", $extraSelectors...) {
-  @media (hover: hover) and (pointer: fine) {
-    &#{$selector} {
-      @content;
-    }
-    @for $i from 0 to length($extraSelectors) {
-      &#{$extraSelectors} {
-        @content;
-      }
-    }
-  }
+@mixin has-hover($selector: ':hover', $extraSelectors...) {
+	@media (hover: hover) and (pointer: fine) {
+		&#{$selector} {
+			@content;
+		}
+		@for $i from 0 to length($extraSelectors) {
+			&#{$extraSelectors} {
+				@content;
+			}
+		}
+	}
 }
 
 @mixin max-width($value: 1400px) {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 clamp(var(--space-base), 4vw, var(--space-lg));
-  width: min(#{$value}, 100%);
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 clamp(var(--space-base), 4vw, var(--space-lg));
+	width: min(#{$value}, 100%);
 }
 
 @mixin fluid-type {
-  font-size: clamp(
-    var(--font-size-min),
-    var(--font-size-fluid, 5cqi),
-    var(--font-size-max)
-  );
+	font-size: clamp(
+		var(--font-size-min, var(--text-base)),
+		var(--font-size-fluid, 5cqi),
+		var(--font-size-max, var(--text-lg))
+	);
 }
 
 @mixin visually-hidden {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-  white-space: nowrap;
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	white-space: nowrap;
 }

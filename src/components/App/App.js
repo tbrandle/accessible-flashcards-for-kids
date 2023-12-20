@@ -4,22 +4,24 @@ import CardCarousel from '../CardCarousel/CardCarousel';
 import './App.scss';
 
 //ToDo:
+
+// design suggests: daring, brave, adventure, curiosity, confidence, encouragement, focus, fun, positive, excitement, nostalgia? Needs to be legible for clarity and speed but also have a sense of curiosity, encouragement and fun. It also needs work with each theme that is selected.
+
+// update fonts, finish basic text/side-by-side layout, fluid text
+
+// downgrade embla to stable version
+
 // break up buttons container. the pointer-events are messing with the interaction of the cards below. Need to be positioned individually
 
 // fix mask on large screens. need to adjust vw... or use container query
 
-// tune up progress success messaging. glitches back and fourth... maybe round the number up with ceiling to make it exact? too fluid at the moment, the text bounces back and forth between text. Also animate this text in and have it disappear again.
-// on full completion, maybe rainbow animate the color bar?
-// make slider more interesting. add ::after to change shape, or add encouraging messaging
-// slide-in-view isn't quite accurate. says in view when they aren't...
-// update select arrow with chevron?
-// make left and right cards visible on mobile so swiping is automatically suggested, no rely on buttons. Need to tinker with flex-basis and justify-content center on slides ul.
+// MESSAGING: design where occurs. tune up progress success messaging. glitches back and fourth... maybe round the number up with ceiling to make it exact, or set to 10.5? too fluid at the moment, the text bounces back and forth between text. Also animate this text in and have it disappear again. Don't want to disappear too quickly... kids can't read that fast, can't be like subtitles, need time to process the words.
+
 // on large screens, have next and prev on the sides with text
-// update cubic bezier easing... add some smoothing, maybe some bounce
+
+// slide-in-view isn't quite accurate. says in view when they aren't... Does this need to be addressed?
+// make left and right cards visible on mobile so swiping is automatically suggested, no rely on buttons. Need to tinker with flex-basis and justify-content center on slides ul.
 // card flip animation
-// update fonts
-// Add full screen background imagery per theme.
-// Make the progress bar fill up the entire viewport edge? completes the full square??? https://stackoverflow.com/questions/31996110/progress-bar-along-the-borders-of-a-rectangle#32003052
 
 // CARD BACKS:
 // utilize stock imagery?
@@ -27,9 +29,6 @@ import './App.scss';
 // add a texture to backgrounds, like space... stars or horizontal gradients
 // de-saturate and stylize the icon on the back of the card? Maybe 1 large barely visible in the card center or along the edges/corners
 // is it possible to get the html emoticons in svg format? Then could make the robot's light flash or something when selected is active...
-
-// BUGS
-// 5x3 and 3x5 are both showing up. Should this issue be accounted for and does it happen for each pair of integers?
 
 // ACCESSIBILITY WORK *********
 // Accessibility focus tabbing is buggy. Is it the viewport mask? Chrome: works, FF: works, Saf: tabs through but focus doesn't seem to follow and seems to remain on a previous card.. also cards are skipping order... but make sense when go backward...
@@ -40,6 +39,26 @@ import './App.scss';
 // User test fonts... use open-dyslexic? https://opendyslexic.org/
 // FF, tab focus-visible on switch is not working when the checkbox is visually hidden. Google how to get around this issue. It has to be a common problem.
 
+// BUGS
+// 5x3 and 3x5 are both showing up. Should this issue be accounted for and does it happen for each pair of integers?
+// fix opacity transition when card returns to front after selected
+
+// NICE TO HAVE / ENHANCEMENTS
+// update cubic bezier easing... add some smoothing, maybe some bounce
+// Make the progress bar fill up the entire viewport edge? completes the full square??? https://stackoverflow.com/questions/31996110/progress-bar-along-the-borders-of-a-rectangle#32003052
+// Add full screen background imagery per theme.
+// update select arrow with chevron?
+// on full completion, maybe rainbow animate the color bar?
+// make slider more interesting. add ::after to change shape, or add encouraging messaging
+// have an input mode, where checks the answer and if correct, apply the selected class, if not, shake no
+// add a progress monitor tool so users can see what day they did and how much they got right.
+// try to get grid to load only when applicable and not all at the beginning to avoid the FOUC. Lazy load???
+// ADD a shuffle/reset button to refilter
+// add a start stop timer?
+// add alerts like "half way there! Keep going!", "only 10 more!"
+// final slide is a "complete!" message with an animation? or the card is a "success" card?
+// celebrate once reach the end... hooray! confetti?
+
 // TOUCH UP / CLEAN UP ************
 // make breakpoint mixins use sass variables
 // remove unnecessary font size variables
@@ -47,19 +66,9 @@ import './App.scss';
 // consolidate text sizes and add for 16rem
 // performance enhancements on mobile... dyslexic version is choppy, try: text-rendering: optimizeSpeed; or will-change: transform... or don't transform icons at all.
 // Only do icon animations on desktop. Mobile is too much it causes chop.
-// reduce the "bounce" of embla. too much?
 // does "selected" need to be a state variable? or just a js toggle? It will remember which card is flipped over. Might be more performant to use JS and basic css instead of state var. Experiment.
 // try out range syntax in media queries: https://www.bram.us/2021/10/26/media-queries-level-4-media-query-range-contexts/
 // change up code comment styling. Make unique.
-
-// NICE TO HAVE / ENHANCEMENTS
-// have an input mode, where checks the answer and if correct, apply the selected class, if not, shake no
-// try to get grid to load only when applicable and not all at the beginning to avoid the FOUC. Lazy load???
-// ADD a shuffle/reset button to refilter
-// add a start stop timer?
-// add alerts like "half way there! Keep going!", "only 10 more!"
-// final slide is a "complete!" message with an animation? or the card is a "success" card?
-// celebrate once reach the end... hooray! confetti?
 
 //NOTES:
 // Who was this made for? KIDS! Specifically elementary school age that supporting accessibility features like dyslexic readers
@@ -142,9 +151,11 @@ const App = () => {
 				<div className='leftSide'>
 					<header>
 						<h1>
-							Accessible Flashcards <span>for kids!</span>
+							Multiplication Flashcards
+							<br />
+							<span>for kids!</span>
 						</h1>
-						<h2>A simple way to learn &amp; practice multiplication problems.</h2>
+						<h2>An accessible way to practice multiplication problems.</h2>
 					</header>
 				</div>
 				<div className='rightSide'>

@@ -22,20 +22,50 @@
 	display: grid;
 	place-content: center;
 	text-align: left; // left only for dyslexia?
+	container-type: inline-size;
+	color: var(--theme-color-body-text);
 
 	* + * {
 		margin-top: var(--flow-space);
 	}
 
+	// Simplify this, put header styles in base
+	h1,
+	h2 {
+		@include utils.fluid-type;
+	}
+
 	h1 {
-		font-size: var(--text-3xl);
+		--font-size-min: var(--text-3xl);
+		--font-size-fluid: 4vw;
+		--font-size-max: var(--text-6xl);
+
+		line-height: 1.2;
 
 		span {
+			font-family: var(--font-family-display);
 			display: inline-block;
 			transform: skewY(-3deg);
 		}
+
+		@media screen and (min-width: 1023px) {
+			--font-size-fluid: 16cqi;
+		}
+	}
+
+	h2 {
+		--font-size-min: var(--text-lg);
+		--font-size-fluid: 4vw;
+		--font-size-max: var(--text-xl);
+
+		line-height: 1.3;
+
+		@media screen and (min-width: 1023px) {
+			--font-size-fluid: 7cqi;
+		}
 	}
 }
+
 .rightSide {
 	display: grid;
 	align-content: center;

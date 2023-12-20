@@ -5,19 +5,24 @@ import './App.scss';
 
 //ToDo:
 
-// design suggests: daring, brave, adventure, curiosity, confidence, encouragement, focus, fun, positive, excitement, nostalgia? Needs to be legible for clarity and speed but also have a sense of curiosity, encouragement and fun. It also needs work with each theme that is selected.
-
-// update fonts, finish basic text/side-by-side layout, fluid text
-
 // downgrade embla to stable version
+
+// make cards larger on really large screens
+// make intro text disappear as you start to navigate, so not distracted?
+
+// make a better underline for kids
 
 // break up buttons container. the pointer-events are messing with the interaction of the cards below. Need to be positioned individually
 
 // fix mask on large screens. need to adjust vw... or use container query
 
+// add a footer with information. Made with love and for accessibility and education. Ryan Brandle
+
 // MESSAGING: design where occurs. tune up progress success messaging. glitches back and fourth... maybe round the number up with ceiling to make it exact, or set to 10.5? too fluid at the moment, the text bounces back and forth between text. Also animate this text in and have it disappear again. Don't want to disappear too quickly... kids can't read that fast, can't be like subtitles, need time to process the words.
 
 // on large screens, have next and prev on the sides with text
+
+// use has() all siblings besides the current slide to animate opacity and scale? See wes bos has() post.
 
 // slide-in-view isn't quite accurate. says in view when they aren't... Does this need to be addressed?
 // make left and right cards visible on mobile so swiping is automatically suggested, no rely on buttons. Need to tinker with flex-basis and justify-content center on slides ul.
@@ -40,10 +45,12 @@ import './App.scss';
 // FF, tab focus-visible on switch is not working when the checkbox is visually hidden. Google how to get around this issue. It has to be a common problem.
 
 // BUGS
+// progress bar buggy, sometimes doesn't show up until rage click a few slides in
 // 5x3 and 3x5 are both showing up. Should this issue be accounted for and does it happen for each pair of integers?
 // fix opacity transition when card returns to front after selected
 
 // NICE TO HAVE / ENHANCEMENTS
+// for progress bar, try using a mask to reveal the svg beneath. Make the progress a squiggle, something fun, better than a bar. Think 80's/90's swooping sketch squiggle
 // update cubic bezier easing... add some smoothing, maybe some bounce
 // Make the progress bar fill up the entire viewport edge? completes the full square??? https://stackoverflow.com/questions/31996110/progress-bar-along-the-borders-of-a-rectangle#32003052
 // Add full screen background imagery per theme.
@@ -72,6 +79,7 @@ import './App.scss';
 
 //NOTES:
 // Who was this made for? KIDS! Specifically elementary school age that supporting accessibility features like dyslexic readers
+// design suggests: daring, brave, adventure, curiosity, confidence, encouragement, focus, fun, positive, excitement, nostalgia? Needs to be legible for clarity and speed but also have a sense of curiosity, encouragement and fun. It also needs work with each theme that is selected.
 // dyslexia features to note:
 // add theme for dyslexia... use a different font, allow for color, size modifications? Perhaps just apply a data-theme for dyslexia!
 //left align everything

@@ -11,7 +11,7 @@
 	}
 }
 
-@mixin max-width($value: 1400px) {
+@mixin max-width($value: 1800px) {
 	margin-left: auto;
 	margin-right: auto;
 	padding: 0 clamp(var(--space-base), 4vw, var(--space-lg));

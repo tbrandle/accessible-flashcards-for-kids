@@ -172,7 +172,6 @@ const App = () => {
 						</h1>
 						<h2>An accessible way to practice multiplication problems.</h2>
 					</header>
-					<img src='/images/texture.png' />
 				</div>
 				<div className='rightSide'>
 					<div className='controls'>

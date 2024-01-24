@@ -18,7 +18,7 @@
 }
 
 .leftSide {
-	--flow-space: var(--space-md);
+	--flow-space: var(--space-xl);
 
 	display: grid;
 	place-content: center;
@@ -27,6 +27,8 @@
 	color: var(--theme-color-body-text);
 
 	@media screen and (max-width: 1023px) {
+		--flow-space: var(--space-md);
+
 		@include utils.max-width;
 		margin-top: var(--space-2xl);
 		text-align: center;
@@ -57,7 +59,7 @@
 		--font-size-fluid: 14cqi;
 		--font-size-max: var(--text-8xl);
 
-		line-height: 1.2;
+		line-height: 1.1;
 
 		span {
 			font-family: var(--font-family-display);
@@ -69,6 +71,7 @@
 			-webkit-background-clip: text;
 			background-clip: text;
 			padding-right: var(--space-base);
+			margin-top: var(--space-md);
 
 			text-shadow: 3px 3px 0px var(--theme-color-body-text);
 		}

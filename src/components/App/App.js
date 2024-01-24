@@ -5,11 +5,11 @@ import './App.scss';
 
 //ToDo:
 
-// make embla container full bleed on mobile
+// add some gristly texture overlay to "for kids"... background clip image with a multiply?
 
 // make controls attached to or in the same static space as the progress bar. Will always be in view. Make the background gradient out along the bottom so page text scrolls behind it.
+// in addition... maybe this space could be used to fade in/out messages with the controls?
 
-// make controls at top of app on mobile? or for all views?
 // break up buttons container. the pointer-events are messing with the interaction of the cards below. Need to be positioned individually
 
 // maybe turn off opacity on mobile as well? make simple?
@@ -172,6 +172,7 @@ const App = () => {
 						</h1>
 						<h2>An accessible way to practice multiplication problems.</h2>
 					</header>
+					<img src='/images/texture.png' />
 				</div>
 				<div className='rightSide'>
 					<div className='controls'>

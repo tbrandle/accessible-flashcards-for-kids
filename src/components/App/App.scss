@@ -7,12 +7,13 @@
 
 .wrapper {
 	@include utils.max-width;
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: var(--space-lg);
+	display: block;
+	margin-top: 4vh; // make this a common variable... --progress-height
 
-	@media screen and (min-width: 1023px) {
+	@media screen and (min-width: 1024px) {
+		display: grid;
 		grid-template-columns: 1fr 2fr;
+		gap: var(--space-lg);
 	}
 }
 
@@ -21,28 +22,38 @@
 
 	display: grid;
 	place-content: center;
-	text-align: left; // left only for dyslexia?
+	text-align: left;
 	container-type: inline-size;
 	color: var(--theme-color-body-text);
+
+	@media screen and (max-width: 1023px) {
+		margin-top: var(--space-2xl);
+		text-align: center;
+	}
 
 	* + * {
 		margin-top: var(--flow-space);
 	}
 
-	// think of a better way to do this
 	header {
-		margin-top: -80px;
+		@media screen and (min-width: 1024px) {
+			margin-top: -80px;
+		}
 	}
 
-	// Simplify this, put header styles in base
 	h1,
 	h2 {
 		@include utils.fluid-type;
+
+		@media screen and (max-width: 1023px) {
+			margin-left: auto;
+			margin-right: auto;
+		}
 	}
 
 	h1 {
 		--font-size-min: var(--text-3xl);
-		--font-size-fluid: 4vw;
+		--font-size-fluid: 14cqi;
 		--font-size-max: var(--text-8xl);
 
 		line-height: 1.2;
@@ -52,7 +63,6 @@
 			display: inline-block;
 			transform: skewY(-6deg);
 			letter-spacing: 1.5px;
-			// text-decoration: underline;
 			background-image: linear-gradient(45deg, var(--theme-color-gradient-left), var(--theme-color-gradient-right));
 			color: transparent;
 			-webkit-background-clip: text;
@@ -62,7 +72,15 @@
 			text-shadow: 3px 3px 0px var(--theme-color-body-text);
 		}
 
-		@media screen and (min-width: 1023px) {
+		@media screen and (max-width: 1023px) {
+			max-width: 18ch;
+		}
+
+		@media screen and (min-width: 768px) {
+			--font-size-fluid: 8cqi;
+		}
+
+		@media screen and (min-width: 1024px) {
 			--font-size-fluid: 16cqi;
 		}
 	}
@@ -75,7 +93,11 @@
 		line-height: 1.3;
 		text-wrap: balance;
 
-		@media screen and (min-width: 1023px) {
+		@media screen and (max-width: 1023px) {
+			max-width: 30ch;
+		}
+
+		@media screen and (min-width: 1024px) {
 			--font-size-fluid: 7cqi;
 		}
 	}
@@ -84,7 +106,12 @@
 .rightSide {
 	display: grid;
 	align-content: center;
-	margin: var(--space-3xl) 0 calc(var(--space-3xl) * 2);
+	margin-top: var(--space-2xl);
+	margin-bottom: var(--space-base);
+
+	@media screen and (min-width: 1024px) {
+		margin: var(--space-3xl) 0 calc(var(--space-3xl) * 2);
+	}
 }
 
 // ===============================
@@ -101,8 +128,8 @@
 	margin-bottom: var(--space-base);
 
 	@media screen and (max-width: 499px) {
+		font-size: var(--text-base);
 		justify-content: space-between;
-		margin-top: var(--space-xl);
 	}
 }
 

@@ -5,7 +5,13 @@ import './App.scss';
 
 //ToDo:
 
-// downgrade embla to stable version
+// finish mobile layouts
+
+// no cursor hand point on safari?
+// use devtools to investigate if I have too heavy css operations causing repaints, etc... maybe just render the integergrid for each individual card instead of all of them? Ask tim? ISSUES ONLY OCCUR WITH DYSLEXIA... IT HAS TO BE BECAUSE OF THE ICONGRID
+
+// make embla container full bleed on mobile
+// maybe turn off opacity on mobile as well? make simple?
 
 // make cards larger on really large screens
 // make intro text disappear as you start to navigate, so not distracted?
@@ -37,7 +43,6 @@ import './App.scss';
 
 // ACCESSIBILITY WORK *********
 // Accessibility focus tabbing is buggy. Is it the viewport mask? Chrome: works, FF: works, Saf: tabs through but focus doesn't seem to follow and seems to remain on a previous card.. also cards are skipping order... but make sense when go backward...
-//**** downgrade embla from v8rc to last stable version, v7.1.
 //refer focus issue from this comment. https://github.com/davidjerleke/embla-carousel/issues/239#issuecomment-10730093740. This might be causing issues with safari focus state */
 // reduced motion for carousel animation? double check
 // run user test, prefer 1x1 ratio for spread out icons or tight packed icons? Colors, Fonts, Animations.
@@ -48,6 +53,7 @@ import './App.scss';
 // progress bar buggy, sometimes doesn't show up until rage click a few slides in
 // 5x3 and 3x5 are both showing up. Should this issue be accounted for and does it happen for each pair of integers?
 // fix opacity transition when card returns to front after selected
+// where are all the tailwind css variables coming from? They load over and over again. Only exist in package.lock. Possibly a dependency of a third party? Embla?
 
 // NICE TO HAVE / ENHANCEMENTS
 // for progress bar, try using a mask to reveal the svg beneath. Make the progress a squiggle, something fun, better than a bar. Think 80's/90's swooping sketch squiggle

@@ -1,197 +1,192 @@
-@use "../../styles/utils";
+@use '../../styles/utils';
 
 // ===============================
 // Carousel styles
 // ===============================
 
 .embla {
-  --button-color: var(--theme-color-button);
-  --button-color-hover: var(--theme-color-button-hover);
-  --progress-bar-gradient-left: var(--theme-color-gradient-left);
-  --progress-bar-gradient-right: var(--theme-color-gradient-right);
-  --progress-bar-back: var(--theme-color-accent-soft);
-  --mask-width: 6vw;
-  --mask: linear-gradient(
-    to right,
-    transparent,
-    transparent var(--mask-width),
-    black calc(var(--mask-width) * 2),
-    black calc(100% - calc(var(--mask-width) * 2)),
-    transparent calc(100% - var(--mask-width)),
-    transparent
-  );
+	--button-color: var(--theme-color-button);
+	--button-color-hover: var(--theme-color-button-hover);
+	--progress-bar-gradient-left: var(--theme-color-gradient-left);
+	--progress-bar-gradient-right: var(--theme-color-gradient-right);
+	--progress-bar-back: var(--theme-color-accent-soft);
+	--mask-width: 6vw;
+	--mask: linear-gradient(
+		to right,
+		transparent,
+		transparent var(--mask-width),
+		black calc(var(--mask-width) * 2),
+		black calc(100% - calc(var(--mask-width) * 2)),
+		transparent calc(100% - var(--mask-width)),
+		transparent
+	);
 
-  width: 100%;
-  margin: 0;
-  overflow: hidden;
-  position: relative;
+	width: 100%;
+	margin: 0;
+	overflow: hidden;
+	position: relative;
 
-  ul,
-  li {
-    list-style: none;
-  }
+	ul,
+	li {
+		list-style: none;
+	}
 }
 
 .viewport {
-  padding: var(--space-md) 0;
+	padding: var(--space-md) 0;
 
-  &.is-draggable {
-    cursor: grab;
-  }
+	&.is-draggable {
+		cursor: grab;
+	}
 
-  &.is-dragging {
-    cursor: grabbing;
-  }
+	&.is-dragging {
+		cursor: grabbing;
+	}
 
-  @media screen and (min-width: 500px) {
-    -webkit-mask-image: var(--mask);
-    mask-image: var(--mask);
-    // margin-left: calc(var(--mask-width) / -1);
-    // margin-right: calc(var(--mask-width) / -1);
-    overflow: hidden;
-  }
+	@media screen and (min-width: 500px) {
+		-webkit-mask-image: var(--mask);
+		mask-image: var(--mask);
+		// margin-left: calc(var(--mask-width) / -1);
+		// margin-right: calc(var(--mask-width) / -1);
+		overflow: hidden;
+	}
 }
 
 .slidesContainer {
-  display: flex;
-  // will-change: transform;
-  margin: 0;
-  padding: 0;
+	display: flex;
+	will-change: transform;
+	margin: 0;
+	padding: 0;
 }
 
 .slide {
-  flex: 0 0 100%;
-  min-width: 0;
-  // transition: transform 5s ease-out;
+	flex: 0 0 100%;
+	min-width: 0;
+	// transition: transform 5s ease-out;
 
-  article {
-    // --slide-width-min: 300px;
-    // --slide-width-max: 370px;
+	article {
+		// --slide-width-min: 300px;
+		// --slide-width-max: 370px;
 
-    height: 100%;
-    width: clamp(300px, 50vw, 370px);
-    margin-left: auto;
-    margin-right: auto;
-  }
+		height: 100%;
+		width: clamp(300px, 50vw, 370px);
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 .buttonContainer {
-  display: grid;
-  grid-template-columns: auto auto;
-  place-content: center;
-  gap: var(--space-md);
-  overflow: hidden;
+	display: grid;
+	grid-template-columns: auto auto;
+	place-content: center;
+	gap: var(--space-md);
+	overflow: hidden;
 
-  @media screen and (min-width: 500px) {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    width: 100%;
-    justify-content: space-between;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 clamp(var(--space-base), 4vw, var(--space-lg));
-    width: min(650px, 100%);
-  }
+	@media screen and (min-width: 500px) {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		transform: translateY(-50%);
+		width: 100%;
+		justify-content: space-between;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 clamp(var(--space-base), 4vw, var(--space-lg));
+		width: min(650px, 100%);
+	}
 }
 
 .carouselButton {
-  -webkit-appearance: none;
-  font-size: var(--text-6xl);
-  background-color: transparent;
-  display: inline-flex;
-  text-decoration: none;
-  color: var(--button-color);
-  border: 0;
-  padding: 0;
-  margin: 0;
-  z-index: 1;
-  transition: transform var(--duration-2xs) ease-out,
-    opacity var(--duration-sm) ease-out;
-  height: 48px;
-  opacity: 0.7;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  touch-action: manipulation;
-  -ms-touch-action: manipulation;
-  -webkit-touch-action: manipulation;
-  -moz-touch-action: manipulation;
+	-webkit-appearance: none;
+	font-size: var(--text-6xl);
+	background-color: transparent;
+	display: inline-flex;
+	text-decoration: none;
+	color: var(--button-color);
+	border: 0;
+	padding: 0;
+	margin: 0;
+	z-index: 1;
+	transition: transform var(--duration-2xs) ease-out, opacity var(--duration-sm) ease-out;
+	height: 48px;
+	opacity: 0.7;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	touch-action: manipulation;
+	-ms-touch-action: manipulation;
+	-webkit-touch-action: manipulation;
+	-moz-touch-action: manipulation;
 
-  span {
-    line-height: 0.25;
-  }
+	span {
+		line-height: 0.25;
+	}
 
-  @include utils.has-hover() {
-    &:not(:disabled) {
-      opacity: 1;
-      transform: translate(4px, -2px);
+	@include utils.has-hover() {
+		&:not(:disabled) {
+			opacity: 1;
+			transform: translate(4px, -2px);
 
-      &:first-child {
-        transform: translate(-4px, -2px);
+			&:first-child {
+				transform: translate(-4px, -2px);
 
-        &:active {
-          transform: translate(-4px, 0px);
-        }
-      }
-      &:active {
-        transform: translate(4px, 0px);
-      }
-    }
-  }
+				&:active {
+					transform: translate(-4px, 0px);
+				}
+			}
+			&:active {
+				transform: translate(4px, 0px);
+			}
+		}
+	}
 
-  &:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-  }
+	&:disabled {
+		opacity: 0.3;
+		cursor: not-allowed;
+	}
 }
 
 .progressContainer {
-  --progress-height: 4vh;
+	--progress-height: 4vh;
 
-  z-index: 1;
-  background-color: var(--progress-bar-back);
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: var(--progress-height);
-  // height: var(--space-md);
-  margin-left: auto;
-  margin-right: auto;
-  pointer-events: none;
-  width: 100%;
-  overflow: hidden;
-  // box-shadow: 0px 1px 3px var(--color-black-70);
+	z-index: 1;
+	background-color: var(--progress-bar-back);
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: var(--progress-height);
+	// height: var(--space-md);
+	margin-left: auto;
+	margin-right: auto;
+	pointer-events: none;
+	width: 100%;
+	overflow: hidden;
+	// box-shadow: 0px 1px 3px var(--color-black-70);
 }
 
 .progressBar {
-  background-image: linear-gradient(
-    45deg,
-    var(--progress-bar-gradient-left),
-    var(--progress-bar-gradient-right)
-  );
-  position: absolute;
-  width: 100%;
-  top: 0;
-  bottom: 0;
-  left: -100%;
-  border-top-right-radius: 360px;
-  border-bottom-right-radius: 360px;
+	background-image: linear-gradient(45deg, var(--progress-bar-gradient-left), var(--progress-bar-gradient-right));
+	position: absolute;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	left: -100%;
+	border-top-right-radius: 360px;
+	border-bottom-right-radius: 360px;
 
-  &::after {
-    // clapping hands, thumbs up, encouragment
-    // updates some variable custom attribute text with js
-    // content: "Keep it up!";
-    content: attr(data-progress-text);
-    position: absolute;
-    right: var(--space-base);
-    // top calc isn't working...
-    top: calc(50% - (var(--progress-height) / 2));
-    z-index: 999;
-  }
+	&::after {
+		// clapping hands, thumbs up, encouragment
+		// updates some variable custom attribute text with js
+		// content: "Keep it up!";
+		content: attr(data-progress-text);
+		position: absolute;
+		right: var(--space-base);
+		// top calc isn't working...
+		top: calc(50% - (var(--progress-height) / 2));
+		z-index: 999;
+	}
 }

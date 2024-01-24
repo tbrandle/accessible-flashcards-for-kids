@@ -5,20 +5,21 @@ import './App.scss';
 
 //ToDo:
 
-// finish mobile layouts
+// make embla container full bleed on mobile
+
+// make controls attached to or in the same static space as the progress bar. Will always be in view. Make the background gradient out along the bottom so page text scrolls behind it.
+
+// make controls at top of app on mobile? or for all views?
+// break up buttons container. the pointer-events are messing with the interaction of the cards below. Need to be positioned individually
+
+// maybe turn off opacity on mobile as well? make simple?
 
 // no cursor hand point on safari?
 // use devtools to investigate if I have too heavy css operations causing repaints, etc... maybe just render the integergrid for each individual card instead of all of them? Ask tim? ISSUES ONLY OCCUR WITH DYSLEXIA... IT HAS TO BE BECAUSE OF THE ICONGRID
 
-// make embla container full bleed on mobile
-// maybe turn off opacity on mobile as well? make simple?
-
 // make cards larger on really large screens
+
 // make intro text disappear as you start to navigate, so not distracted?
-
-// make a better underline for kids
-
-// break up buttons container. the pointer-events are messing with the interaction of the cards below. Need to be positioned individually
 
 // fix mask on large screens. need to adjust vw... or use container query
 

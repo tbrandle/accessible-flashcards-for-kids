@@ -150,7 +150,7 @@
 }
 
 .progressContainer {
-	--progress-height: 4vh;
+	--progress-height: var(--app-bar-height);
 
 	z-index: 1;
 	background-color: var(--progress-bar-back);
@@ -159,7 +159,6 @@
 	right: 0;
 	left: 0;
 	height: var(--progress-height);
-	// height: var(--space-md);
 	margin-left: auto;
 	margin-right: auto;
 	pointer-events: none;

@@ -6,11 +6,11 @@
 }
 
 .wrapper {
-	@include utils.max-width;
 	display: block;
-	margin-top: 4vh; // make this a common variable... --progress-height
+	margin-top: var(--app-bar-height);
 
 	@media screen and (min-width: 1024px) {
+		@include utils.max-width;
 		display: grid;
 		grid-template-columns: 1fr 2fr;
 		gap: var(--space-lg);
@@ -27,6 +27,7 @@
 	color: var(--theme-color-body-text);
 
 	@media screen and (max-width: 1023px) {
+		@include utils.max-width;
 		margin-top: var(--space-2xl);
 		text-align: center;
 	}

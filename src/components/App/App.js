@@ -5,7 +5,7 @@ import './App.scss';
 
 //ToDo:
 
-// add some gristly texture overlay to "for kids"... background clip image with a multiply?
+// add some gristly texture overlay to "for kids"... background clip image with a multiply? use a data attribute for the text to mimic text before and/or after. Maybe can get drop shadow effect this way and do a blend mode?
 
 // make controls attached to or in the same static space as the progress bar. Will always be in view. Make the background gradient out along the bottom so page text scrolls behind it.
 // in addition... maybe this space could be used to fade in/out messages with the controls?

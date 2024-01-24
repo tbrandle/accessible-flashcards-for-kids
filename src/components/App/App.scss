@@ -72,8 +72,18 @@
 			background-clip: text;
 			padding-right: var(--space-base);
 			margin-top: var(--space-md);
-
 			text-shadow: 3px 3px 0px var(--theme-color-body-text);
+
+			// example below
+			// text-shadow: 3px 3px 0px var(--theme-color-body-text);
+			// background-image: url('https://3.bp.blogspot.com/-6Cw056uPYug/UjS0rCZ8x0I/AAAAAAAABAE/nGHZHmFmPzs/s1600/234.jpg');
+			// background-position: 0 35%;
+
+			// color: transparent;
+			// padding: 20px 40px;
+			// -webkit-background-clip: text;
+			// -moz-background-clip: text;
+			// background-clip: text;
 		}
 
 		@media screen and (max-width: 1023px) {

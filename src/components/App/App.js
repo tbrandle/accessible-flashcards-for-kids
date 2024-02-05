@@ -4,13 +4,10 @@ import CardCarousel from '../CardCarousel/CardCarousel';
 import './App.scss';
 
 //ToDo:
-
-// add some gristly texture overlay to "for kids"... background clip image with a multiply? use a data attribute for the text to mimic text before and/or after. Maybe can get drop shadow effect this way and do a blend mode?
+// break up buttons container. the pointer-events are messing with the interaction of the cards below. Need to be positioned individually
 
 // make controls attached to or in the same static space as the progress bar. Will always be in view. Make the background gradient out along the bottom so page text scrolls behind it.
 // in addition... maybe this space could be used to fade in/out messages with the controls?
-
-// break up buttons container. the pointer-events are messing with the interaction of the cards below. Need to be positioned individually
 
 // maybe turn off opacity on mobile as well? make simple?
 
@@ -57,6 +54,7 @@ import './App.scss';
 // where are all the tailwind css variables coming from? They load over and over again. Only exist in package.lock. Possibly a dependency of a third party? Embla?
 
 // NICE TO HAVE / ENHANCEMENTS
+// add some gristly texture overlay to "for kids"... background clip image with a multiply? use a data attribute for the text to mimic text before and/or after. Maybe can get drop shadow effect this way and do a blend mode?
 // for progress bar, try using a mask to reveal the svg beneath. Make the progress a squiggle, something fun, better than a bar. Think 80's/90's swooping sketch squiggle
 // update cubic bezier easing... add some smoothing, maybe some bounce
 // Make the progress bar fill up the entire viewport edge? completes the full square??? https://stackoverflow.com/questions/31996110/progress-bar-along-the-borders-of-a-rectangle#32003052

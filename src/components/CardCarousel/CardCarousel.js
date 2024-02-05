@@ -103,10 +103,12 @@ export const CardCarousel = ({ icon }) => {
 					style={{ transform: `translate3d(${scrollProgress}%,0px,0px)` }}
 				/>
 			</div>
-			<div className='buttonContainer'>
+			<PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+			<NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+			{/* <div className='buttonContainer'>
 				<PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
 				<NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-			</div>
+			</div> */}
 		</section>
 	);
 };

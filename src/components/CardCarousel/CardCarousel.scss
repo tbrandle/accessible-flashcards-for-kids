@@ -14,20 +14,33 @@
 	--mask: linear-gradient(
 		to right,
 		transparent,
-		transparent var(--mask-width),
+		transparent 0,
 		black calc(var(--mask-width) * 2),
 		black calc(100% - calc(var(--mask-width) * 2)),
-		transparent calc(100% - var(--mask-width)),
+		transparent 100%,
 		transparent
 	);
-
-	display: grid;
-	grid-template: 'container' 1fr;
 
 	width: 100%;
 	margin: 0;
 	overflow: hidden;
 	position: relative;
+	text-align: center;
+
+	@media screen and (min-width: 600px) {
+		--mask: linear-gradient(
+			to right,
+			transparent,
+			transparent var(--mask-width),
+			black calc(var(--mask-width) * 2),
+			black calc(100% - calc(var(--mask-width) * 2)),
+			transparent calc(100% - var(--mask-width)),
+			transparent
+		);
+
+		display: grid;
+		grid-template: 'container' 1fr;
+	}
 
 	ul,
 	li {

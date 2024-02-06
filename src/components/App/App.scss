@@ -144,6 +144,7 @@
 	@media screen and (max-width: 499px) {
 		font-size: var(--text-base);
 		justify-content: space-between;
+		padding: 0 clamp(var(--space-base), 4vw, var(--space-lg));
 	}
 }
 

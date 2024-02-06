@@ -142,6 +142,10 @@
 	&.previous {
 		place-self: center left;
 
+		@media screen and (min-width: 600px) and (max-width: 1023px) {
+			margin-left: calc(var(--mask-width) * 2);
+		}
+
 		@media screen and (min-width: 1200px) {
 			margin-left: var(--mask-width);
 		}
@@ -152,6 +156,10 @@
 
 	&.next {
 		place-self: center right;
+
+		@media screen and (min-width: 600px) and (max-width: 1023px) {
+			margin-right: calc(var(--mask-width) * 2);
+		}
 
 		@media screen and (min-width: 1200px) {
 			margin-right: var(--mask-width);

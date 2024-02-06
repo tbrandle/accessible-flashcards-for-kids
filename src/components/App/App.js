@@ -51,6 +51,10 @@ import './App.scss';
 // try out range syntax in media queries: https://www.bram.us/2021/10/26/media-queries-level-4-media-query-range-contexts/
 
 // NICE TO HAVE / ENHANCEMENTS
+// add gradient to give background some dimension. Like a back wall and floor corner effect. FOR EXAMPLE:
+// background: linear-gradient(0deg, #fedd37 39%, var(--theme-color-body-bg)40%);
+// background-size: 100% 100%;
+// background-position: center bottom;
 // card flip animation
 // add some gristly texture overlay to "for kids"... background clip image with a multiply? use a data attribute for the text to mimic text before and/or after. Maybe can get drop shadow effect this way and do a blend mode?
 // for progress bar, try using a mask to reveal the svg beneath. Make the progress a squiggle, something fun, better than a bar. Think 80's/90's swooping sketch squiggle

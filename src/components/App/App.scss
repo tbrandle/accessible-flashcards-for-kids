@@ -139,6 +139,7 @@ footer {
 	text-align: center;
 	line-height: 1.2;
 	color: var(--theme-color-body-text);
+	padding: 0 clamp(var(--space-base), 4vw, var(--space-lg));
 }
 
 // ===============================

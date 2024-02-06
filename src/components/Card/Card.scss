@@ -151,7 +151,7 @@
 .cell {
 	--font-size-min: var(--text-md);
 	--font-size-fluid: 7cqi;
-	--font-size-max: var(--text-2xl);
+	--font-size-max: var(--text-xl);
 
 	@include utils.fluid-type;
 	width: 100%;

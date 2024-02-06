@@ -86,7 +86,9 @@
 		// --slide-width-max: 370px;
 
 		height: 100%;
-		width: clamp(300px, 50vw, 370px);
+		// width: clamp(300px, 50vw, 370px);
+		width: clamp(300px, 33vw, 470px);
+
 		margin-left: auto;
 		margin-right: auto;
 	}

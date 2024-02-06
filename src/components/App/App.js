@@ -4,17 +4,13 @@ import CardCarousel from '../CardCarousel/CardCarousel';
 import './App.scss';
 
 //ToDo:
-// break up buttons container. the pointer-events are messing with the interaction of the cards below. Need to be positioned individually
 
 // make controls attached to or in the same static space as the progress bar. Will always be in view. Make the background gradient out along the bottom so page text scrolls behind it.
 // in addition... maybe this space could be used to fade in/out messages with the controls?
 
-// maybe turn off opacity on mobile as well? make simple?
+// OPTIMIZE MOBILE maybe turn off opacity on mobile as well? make simple?
 
-// no cursor hand point on safari?
-// use devtools to investigate if I have too heavy css operations causing repaints, etc... maybe just render the integergrid for each individual card instead of all of them? Ask tim? ISSUES ONLY OCCUR WITH DYSLEXIA... IT HAS TO BE BECAUSE OF THE ICONGRID
-
-// make cards larger on really large screens
+// OPTIMIZE MOBILE use devtools to investigate if I have too heavy css operations causing repaints, etc... maybe just render the integer grid for each individual card instead of all of them? Ask tim? ISSUES ONLY OCCUR WITH DYSLEXIA... IT HAS TO BE BECAUSE OF THE ICONGRID
 
 // make intro text disappear as you start to navigate, so not distracted?
 
@@ -28,8 +24,6 @@ import './App.scss';
 
 // use has() all siblings besides the current slide to animate opacity and scale? See wes bos has() post.
 
-// slide-in-view isn't quite accurate. says in view when they aren't... Does this need to be addressed?
-// make left and right cards visible on mobile so swiping is automatically suggested, no rely on buttons. Need to tinker with flex-basis and justify-content center on slides ul.
 // card flip animation
 
 // CARD BACKS:

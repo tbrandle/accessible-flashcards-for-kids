@@ -4,9 +4,13 @@ import CardCarousel from '../CardCarousel/CardCarousel';
 import './App.scss';
 
 //ToDo:
-// add a footer with information. Made with love and for accessibility and education. Ryan Brandle
 
 // Sticky Controls - make controls attached to or in the same static space as the progress bar. Will always be in view. Make the background gradient out along the bottom so page text scrolls behind it.
+
+// reverse toggle and label location? keep center vert rule?
+
+// add third or fourth
+
 // in addition... maybe this space could be used to fade in/out messages with the controls?
 
 // MOBILE OPTIMIZATIONS:

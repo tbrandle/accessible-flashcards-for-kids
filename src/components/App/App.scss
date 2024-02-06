@@ -17,7 +17,7 @@
 		@include utils.max-width;
 		display: grid;
 		grid-template-columns: 1fr 2fr;
-		grid-template-rows: 1fr 40px;
+		grid-template-rows: 80px 1fr 40px; // better way? auto and padding?
 		gap: var(--space-lg);
 	}
 }
@@ -35,7 +35,7 @@
 		--flow-space: var(--space-md);
 
 		@include utils.max-width;
-		margin-top: var(--space-2xl);
+		margin-top: var(--space-3xl);
 		text-align: center;
 	}
 
@@ -125,7 +125,7 @@
 .rightSide {
 	display: grid;
 	align-content: center;
-	margin: var(--space-2xl) 0;
+	margin: var(--space-xl) 0 var(--space-2xl);
 
 	@media screen and (min-width: 1024px) {
 		margin-top: var(--space-3xl);
@@ -149,16 +149,26 @@ footer {
 .controls {
 	font-size: var(--text-md);
 	display: grid;
+	grid-column: -1 / 1;
 	grid-template-columns: auto auto;
 	align-items: center;
 	justify-content: center;
 	gap: var(--space-base);
 	margin-bottom: var(--space-base);
 
+	//Todo: rewrite for mobile up and increase margin of left side from 500-1023
+
 	@media screen and (max-width: 499px) {
 		font-size: var(--text-base);
 		justify-content: space-between;
-		padding: 0 clamp(var(--space-base), 4vw, var(--space-lg));
+	}
+
+	@media screen and (max-width: 1023px) {
+		position: fixed;
+		background-color: var(--theme-color-body-bg);
+		width: 100%;
+		z-index: 1;
+		padding: var(--space-base) clamp(var(--space-base), 4vw, var(--space-lg));
 	}
 }
 

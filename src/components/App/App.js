@@ -155,6 +155,21 @@ const App = () => {
 	return (
 		<div className='app'>
 			<div className='wrapper'>
+				<div className='controls'>
+					<Switch label='Optimize for Dyslexia' onChange={() => handleAccessibilityTheme()} />
+					<div className='iconSelect'>
+						<label htmlFor='icon-select'>Theme</label>
+						<select id='icon-select' name='icon' value={dataTheme} onChange={(e) => setDataTheme(e.target.value)}>
+							<option value='🚀'>🚀</option>
+							<option value='🤖'>🤖</option>
+							{/* <option value="🦊">🦊</option> */}
+							{/* <option value="🌴">🌴</option> */}
+							{/* <option value="💜">💜</option> */}
+							{/* <option value="🍔">🍔</option> */}
+							{/* <option value="💩">💩</option> */}
+						</select>
+					</div>
+				</div>
 				<div className='leftSide'>
 					<header>
 						<h1>
@@ -166,21 +181,6 @@ const App = () => {
 					</header>
 				</div>
 				<div className='rightSide'>
-					<div className='controls'>
-						<Switch label='Optimize for Dyslexia' onChange={() => handleAccessibilityTheme()} />
-						<div className='iconSelect'>
-							<label htmlFor='icon-select'>Theme</label>
-							<select id='icon-select' name='icon' value={dataTheme} onChange={(e) => setDataTheme(e.target.value)}>
-								<option value='🚀'>🚀</option>
-								<option value='🤖'>🤖</option>
-								{/* <option value="🦊">🦊</option> */}
-								{/* <option value="🌴">🌴</option> */}
-								{/* <option value="💜">💜</option> */}
-								{/* <option value="🍔">🍔</option> */}
-								{/* <option value="💩">💩</option> */}
-							</select>
-						</div>
-					</div>
 					<CardCarousel icon={dataTheme} />
 				</div>
 				<footer>

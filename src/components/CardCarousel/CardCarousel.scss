@@ -181,7 +181,7 @@
 			opacity: 1;
 			transform: translate(4px, -2px);
 
-			&:first-child {
+			&.previous {
 				transform: translate(-4px, -2px);
 
 				&:active {

@@ -4,27 +4,19 @@ import CardCarousel from '../CardCarousel/CardCarousel';
 import './App.scss';
 
 //ToDo:
+// add a footer with information. Made with love and for accessibility and education. Ryan Brandle
 
-// make controls attached to or in the same static space as the progress bar. Will always be in view. Make the background gradient out along the bottom so page text scrolls behind it.
+// Sticky Controls - make controls attached to or in the same static space as the progress bar. Will always be in view. Make the background gradient out along the bottom so page text scrolls behind it.
 // in addition... maybe this space could be used to fade in/out messages with the controls?
 
+// MOBILE OPTIMIZATIONS:
 // OPTIMIZE MOBILE maybe turn off opacity on mobile as well? make simple?
 
 // OPTIMIZE MOBILE use devtools to investigate if I have too heavy css operations causing repaints, etc... maybe just render the integer grid for each individual card instead of all of them? Ask tim? ISSUES ONLY OCCUR WITH DYSLEXIA... IT HAS TO BE BECAUSE OF THE ICONGRID
 
-// make intro text disappear as you start to navigate, so not distracted?
-
-// fix mask on large screens. need to adjust vw... or use container query
-
-// add a footer with information. Made with love and for accessibility and education. Ryan Brandle
-
-// MESSAGING: design where occurs. tune up progress success messaging. glitches back and fourth... maybe round the number up with ceiling to make it exact, or set to 10.5? too fluid at the moment, the text bounces back and forth between text. Also animate this text in and have it disappear again. Don't want to disappear too quickly... kids can't read that fast, can't be like subtitles, need time to process the words.
-
-// on large screens, have next and prev on the sides with text
+// MESSAGING: design where occurs. tune up progress success messaging. glitches back and fourth... maybe round the number up with ceiling to make it exact, or set to 10.5? Could also add a callback timer function to wait a second before applying. too fluid at the moment, the text bounces back and forth between text. Also animate this text in and have it disappear again. Don't want to disappear too quickly... kids can't read that fast, can't be like subtitles, need time to process the words.
 
 // use has() all siblings besides the current slide to animate opacity and scale? See wes bos has() post.
-
-// card flip animation
 
 // CARD BACKS:
 // utilize stock imagery?
@@ -34,20 +26,28 @@ import './App.scss';
 // is it possible to get the html emoticons in svg format? Then could make the robot's light flash or something when selected is active...
 
 // ACCESSIBILITY WORK *********
-// Accessibility focus tabbing is buggy. Is it the viewport mask? Chrome: works, FF: works, Saf: tabs through but focus doesn't seem to follow and seems to remain on a previous card.. also cards are skipping order... but make sense when go backward...
-//refer focus issue from this comment. https://github.com/davidjerleke/embla-carousel/issues/239#issuecomment-10730093740. This might be causing issues with safari focus state */
-// reduced motion for carousel animation? double check
-// run user test, prefer 1x1 ratio for spread out icons or tight packed icons? Colors, Fonts, Animations.
+// SOLVED: Accessibility focus tabbing is buggy. Is it the viewport mask? Chrome: works, FF: works, Saf: tabs through but focus doesn't seem to follow and seems to remain on a previous card.. also cards are skipping order... but make sense when go backward...
+// refer focus issue from this comment. https://github.com/davidjerleke/embla-carousel/issues/239#issuecomment-10730093740. This might be causing issues with safari focus state
 // User test fonts... use open-dyslexic? https://opendyslexic.org/
-// FF, tab focus-visible on switch is not working when the checkbox is visually hidden. Google how to get around this issue. It has to be a common problem.
 
 // BUGS
 // progress bar buggy, sometimes doesn't show up until rage click a few slides in
-// 5x3 and 3x5 are both showing up. Should this issue be accounted for and does it happen for each pair of integers?
+// FF, tab focus-visible on switch is not working when the checkbox is visually hidden. Google how to get around this issue. It has to be a common problem.
 // fix opacity transition when card returns to front after selected
 // where are all the tailwind css variables coming from? They load over and over again. Only exist in package.lock. Possibly a dependency of a third party? Embla?
 
+// TOUCH UP / CLEAN UP ************
+// make breakpoint mixins use sass variables
+// remove unnecessary font size variables
+// remove comments and console logs
+// consolidate text sizes and add for 16rem
+// performance enhancements on mobile... dyslexic version is choppy, try: text-rendering: optimizeSpeed; or will-change: transform... or don't transform icons at all.
+// Only do icon animations on desktop. Mobile is too much it causes chop.
+// does "selected" need to be a state variable? or just a js toggle? It will remember which card is flipped over. Might be more performant to use JS and basic css instead of state var. Experiment.
+// try out range syntax in media queries: https://www.bram.us/2021/10/26/media-queries-level-4-media-query-range-contexts/
+
 // NICE TO HAVE / ENHANCEMENTS
+// card flip animation
 // add some gristly texture overlay to "for kids"... background clip image with a multiply? use a data attribute for the text to mimic text before and/or after. Maybe can get drop shadow effect this way and do a blend mode?
 // for progress bar, try using a mask to reveal the svg beneath. Make the progress a squiggle, something fun, better than a bar. Think 80's/90's swooping sketch squiggle
 // update cubic bezier easing... add some smoothing, maybe some bounce
@@ -65,29 +65,19 @@ import './App.scss';
 // final slide is a "complete!" message with an animation? or the card is a "success" card?
 // celebrate once reach the end... hooray! confetti?
 
-// TOUCH UP / CLEAN UP ************
-// make breakpoint mixins use sass variables
-// remove unnecessary font size variables
-// remove comments and console logs
-// consolidate text sizes and add for 16rem
-// performance enhancements on mobile... dyslexic version is choppy, try: text-rendering: optimizeSpeed; or will-change: transform... or don't transform icons at all.
-// Only do icon animations on desktop. Mobile is too much it causes chop.
-// does "selected" need to be a state variable? or just a js toggle? It will remember which card is flipped over. Might be more performant to use JS and basic css instead of state var. Experiment.
-// try out range syntax in media queries: https://www.bram.us/2021/10/26/media-queries-level-4-media-query-range-contexts/
-// change up code comment styling. Make unique.
-
 //NOTES:
 // Who was this made for? KIDS! Specifically elementary school age that supporting accessibility features like dyslexic readers
 // design suggests: daring, brave, adventure, curiosity, confidence, encouragement, focus, fun, positive, excitement, nostalgia? Needs to be legible for clarity and speed but also have a sense of curiosity, encouragement and fun. It also needs work with each theme that is selected.
-// dyslexia features to note:
+// DYSLEXIA FEATURES to note:
 // add theme for dyslexia... use a different font, allow for color, size modifications? Perhaps just apply a data-theme for dyslexia!
 //left align everything
 //use dark grey for text... true black on white bgcolor can create a blurring effect
 // use visual alerts
-// reinforce text with icons
+// reinforced text with icons
 
 /**
  * This project incorporates the following:
+ * Designed layout, typography, color systems
  * SCSS includes, use, prepped for css modules
  * SCSS design system, css custom properties, mixins, functions
  * SASS for loop
@@ -98,18 +88,20 @@ import './App.scss';
  * React state management, derived state, lifting state, child to parent communication.
  * Translating JS data into CSS variables for style manipulation.
  * User research - dyslexia design theory and mathematics
- * User testing - dyslexic user, prefer colors, icons, layout
+ * User testing - dyslexic user, prefer colors, fonts, icons(1x1 spacing vs spread out), layout
  * Fluid typography using container queries techniques
  */
 
 /**
  * PROBLEM SOLVING
  * Started with a grid. Not ideal for dyslexia because there is so much competing information. Decided to show one at a time with a carousel to help focus on 1 problem at a time and reducing distraction.
+ * Typography. Unkempt vs Bangers... Unkempt too much like the "For Dummies" books from the 90's.
  * Color theming. Utilized native html emoji colors to create well balanced, well contrasted and easy to read color themes.
- * Token variable naming conventions... attempted to map the raw color names to a --theme-accent-primary/1/2/3 but found that confusing and unneccesary for this particular project. In a more advanced system naming primary/secondary/accents would be more appropriate.
+ * Token variable naming conventions... attempted to map the raw color names to a --theme-accent-primary/1/2/3 but found that confusing and unnecessary for this particular project. In a more advanced system naming primary/secondary/accents would be more appropriate.
  * Made buttons large so children who are using a mouse and touch screen can interact easier.
  * Make progress bar span as much space as possible to make progress more noticeable with so many cards. Noticing progress is more encouraging than barely making a dent.
- * Accessibility. Tabbing. I had options to utilize arrows as tabbable navigation, however, since each slide item is a focusable element itself, then the user can automatically tab forward and backward through the slides. Incorporating the arrow buttons would be difficult because the user would have to tab into the specific card shown, then tab back to the arrows in order to continue navigating. I decided to keep it simple and not overcomplicate the solution.
+ * Accessibility. Tabbing. I had options to utilize arrows as tabbable navigation, however, since each slide item is a focusable element itself, then the user can automatically tab forward and backward through the slides. Incorporating the arrow buttons would be difficult because the user would have to tab into the specific card shown, then tab back to the arrows in order to continue navigating. I decided to keep it simple and not over-complicate the solution.
+ * I ran into issues with the dyslexia icons on mobile. I experimented with many options to reduce the choppiness on mobile safari.
  */
 
 /**
@@ -183,6 +175,10 @@ const App = () => {
 					</div>
 					<CardCarousel icon={dataTheme} />
 				</div>
+				<footer>
+					&copy;&nbsp;2024&nbsp;Ryan&nbsp;Brandle.{' '}
+					<em>Crafted&nbsp;with&nbsp;care&nbsp;for&nbsp;curious&nbsp;minds!</em>
+				</footer>
 			</div>
 		</div>
 	);

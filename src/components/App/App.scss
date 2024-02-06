@@ -9,10 +9,15 @@
 	display: block;
 	margin-top: var(--app-bar-height);
 
+	@media screen and (max-width: 499px) {
+		padding-bottom: var(--space-base);
+	}
+
 	@media screen and (min-width: 1024px) {
 		@include utils.max-width;
 		display: grid;
 		grid-template-columns: 1fr 2fr;
+		grid-template-rows: 1fr 40px;
 		gap: var(--space-lg);
 	}
 }
@@ -120,12 +125,20 @@
 .rightSide {
 	display: grid;
 	align-content: center;
-	margin-top: var(--space-2xl);
-	margin-bottom: var(--space-base);
+	margin: var(--space-2xl) 0;
 
 	@media screen and (min-width: 1024px) {
-		margin: var(--space-3xl) 0 calc(var(--space-3xl) * 2);
+		margin-top: var(--space-3xl);
+		margin-bottom: var(--space-3xl);
 	}
+}
+
+footer {
+	grid-column: -1 / 1;
+	place-self: center;
+	text-align: center;
+	line-height: 1.2;
+	color: var(--theme-color-body-text);
 }
 
 // ===============================

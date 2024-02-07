@@ -82,15 +82,17 @@
 	// transition: transform 5s ease-out;
 
 	article {
-		// --slide-width-min: 300px;
-		// --slide-width-max: 370px;
+		--card-vw: 50vw;
 
 		height: 100%;
-		// width: clamp(300px, 50vw, 370px);
-		width: clamp(300px, 33vw, 470px);
+		width: clamp(300px, var(--card-vw), 470px);
 
 		margin-left: auto;
 		margin-right: auto;
+
+		@media screen and (min-width: 1024px) {
+			--card-vw: 33vw;
+		}
 	}
 }
 

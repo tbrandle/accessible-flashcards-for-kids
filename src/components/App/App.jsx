@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import Switch from '../Switch/Switch';
-import CardCarousel from '../CardCarousel/CardCarousel';
-import './App.scss';
+import { useState, useEffect, useRef } from "react";
+import Switch from "../Switch/Switch";
+import CardCarousel from "../CardCarousel/CardCarousel";
+import "./App.scss";
 
 //ToDo:
 // tinker with card vertical alignment on desktop... not quite the right spacing on top.
@@ -130,66 +130,80 @@ import './App.scss';
  */
 
 const App = () => {
-	const [dataAccessibilityTheme, setDataAccessibilityTheme] = useState('');
-	const [dataTheme, setDataTheme] = useState('🤖');
+  const [dataAccessibilityTheme, setDataAccessibilityTheme] = useState("");
+  const [dataTheme, setDataTheme] = useState("🤖");
+  const documentBodyRef = useRef();
 
-	useEffect(() => {
-		document.body.setAttribute('data-accessibility-theme', dataAccessibilityTheme);
+  useEffect(() => {
+    documentBodyRef.current.setAttribute(
+      "data-accessibility-theme",
+      dataAccessibilityTheme
+    );
 
-		return () => {
-			document.body.removeAttribute('data-accessibility-theme');
-		};
-	}, [dataAccessibilityTheme]);
+    return () => {
+      documentBodyRef.current.removeAttribute("data-accessibility-theme");
+    };
+  }, [dataAccessibilityTheme]);
 
-	useEffect(() => {
-		document.body.setAttribute('data-theme', dataTheme);
+  useEffect(() => {
+    documentBodyRef.current.setAttribute("data-theme", dataTheme);
 
-		return () => {
-			document.body.removeAttribute('data-theme');
-		};
-	}, [dataTheme]);
+    return () => {
+      documentBodyRef.current.removeAttribute("data-theme");
+    };
+  }, [dataTheme]);
 
-	const handleAccessibilityTheme = () => {
-		setDataAccessibilityTheme(dataAccessibilityTheme !== 'dyslexic' ? 'dyslexic' : '');
-	};
+  const handleAccessibilityTheme = () => {
+    setDataAccessibilityTheme(
+      dataAccessibilityTheme !== "dyslexic" ? "dyslexic" : ""
+    );
+  };
 
-	return (
-		<div className='app'>
-			<div className='wrapper'>
-				<div className='controls'>
-					<Switch label='Optimize for Dyslexia' onChange={() => handleAccessibilityTheme()} />
-					<div className='iconSelect'>
-						<label htmlFor='icon-select'>Theme</label>
-						<select id='icon-select' name='icon' value={dataTheme} onChange={(e) => setDataTheme(e.target.value)}>
-							<option value='🚀'>🚀</option>
-							<option value='🤖'>🤖</option>
-							{/* <option value="🦊">🦊</option> */}
-							{/* <option value="🌴">🌴</option> */}
-							{/* <option value="💜">💜</option> */}
-							{/* <option value="🍔">🍔</option> */}
-							{/* <option value="💩">💩</option> */}
-						</select>
-					</div>
-				</div>
-				<div className='leftSide'>
-					<header>
-						<h1>
-							Multiplication Flashcards
-							<br />
-							<span>for kids!</span>
-						</h1>
-						<h2>An accessible way to practice multiplication problems.</h2>
-					</header>
-				</div>
-				<div className='rightSide'>
-					<CardCarousel icon={dataTheme} />
-				</div>
-				<footer>
-					&copy;&nbsp;2024&nbsp;Ryan&nbsp;Brandle.{' '}
-					<em>Crafted&nbsp;with&nbsp;care&nbsp;for&nbsp;curious&nbsp;minds!</em>
-				</footer>
-			</div>
-		</div>
-	);
+  return (
+    <div className="app" ref={documentBodyRef}>
+      <div className="wrapper">
+        <div className="controls">
+          <Switch
+            label="Optimize for Dyslexia"
+            onChange={() => handleAccessibilityTheme()}
+          />
+          <div className="iconSelect">
+            <label htmlFor="icon-select">Theme</label>
+            <select
+              id="icon-select"
+              name="icon"
+              value={dataTheme}
+              onChange={(e) => setDataTheme(e.target.value)}
+            >
+              <option value="🚀">🚀</option>
+              <option value="🤖">🤖</option>
+              {/* <option value="🦊">🦊</option> */}
+              {/* <option value="🌴">🌴</option> */}
+              {/* <option value="💜">💜</option> */}
+              {/* <option value="🍔">🍔</option> */}
+              {/* <option value="💩">💩</option> */}
+            </select>
+          </div>
+        </div>
+        <div className="leftSide">
+          <header>
+            <h1>
+              Multiplication Flashcards
+              <br />
+              <span>for kids!</span>
+            </h1>
+            <h2>An accessible way to practice multiplication problems.</h2>
+          </header>
+        </div>
+        <div className="rightSide">
+          <CardCarousel icon={dataTheme} />
+        </div>
+        <footer>
+          &copy;&nbsp;2024&nbsp;Ryan&nbsp;Brandle.{" "}
+          <em>Crafted&nbsp;with&nbsp;care&nbsp;for&nbsp;curious&nbsp;minds!</em>
+        </footer>
+      </div>
+    </div>
+  );
 };
 export default App;
